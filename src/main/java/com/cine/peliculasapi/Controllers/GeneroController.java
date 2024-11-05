@@ -55,5 +55,4 @@ public class GeneroController {
     public long count(){
         return generoService.count();
     }
-
 }
