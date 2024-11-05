@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  cineAPP:
+    image: spring-jenkins:1.0.0
+    container_name: cineAPP
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+        - SPRING_DATASOURCE_URL=jdbc:mysql://cineAPI:3306/cineplanet
+        - SPRING_DATASOURCE_USERNAME=root
+        - SPRING_DATASOURCE_PASSWORD=luffy123
+    depends_on:
+      - cineAPI
+
+  cineAPI:
+    image: mysql
+    container_name: cineAPI
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: luffy123
+      MYSQL_DATABASE: cineplanet
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test123
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
