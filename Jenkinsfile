@@ -57,7 +57,6 @@ pipeline {
     post {
         always {
             echo 'Finalizando el pipeline.'
-            bat 'docker-compose down' // Asegura que los contenedores se detengan
         }
         success {
             echo 'Pipeline completado exitosamente.'
