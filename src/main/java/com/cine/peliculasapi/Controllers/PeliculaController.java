@@ -51,4 +51,9 @@ public class PeliculaController {
     public long count(){
         return peliculaService.count();
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "Test";
+    }
 }
